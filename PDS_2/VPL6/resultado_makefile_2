@@ -1,0 +1,15 @@
+vpl_execution: Pessoa.o Funcionario.o Professor.o main.o
+	g++ -o vpl_execution ./build/Pessoa.o ./build/Funcionario.o ./build/Professor.o ./build/main.o
+
+Pessoa.o: ./src/entidades/Pessoa.cpp
+	g++ -I./include ./src/entidades/Pessoa.cpp -c -o ./build/Pessoa.o
+	
+Funcionario.o: ./src/entidades/Funcionario.cpp
+	g++ -I./include ./src/entidades/Funcionario.cpp -c -o ./build/Funcionario.o
+
+Professor.o: ./src/entidades/Professor.cpp
+	g++ -I./include ./src/entidades/Professor.cpp -c -o ./build/Professor.o
+
+main.o: ./src/main.cpp
+	g++ -I./include ./src/main.cpp -c -o ./build/main.o
+
