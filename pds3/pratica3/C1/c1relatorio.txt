@@ -1,0 +1,32 @@
+1) Foram alocados dez possições, mas o contador está acessando 11. Linha 8: for (i = 0; i < 11; i++).
+2)
+Command: ./c1correto.a
+==94==
+==94== Invalid write of size 4
+==94==    at 0x1091B8: main (c1.c:9)
+==94==  Address 0x4a48068 is 0 bytes after a block of size 40 alloc'd
+==94==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==94==    by 0x109185: main (c1.c:6)
+==94==
+==94== 
+==94== HEAP SUMMARY:
+==94==     in use at exit: 0 bytes in 0 blocks
+==94==   total heap usage: 1 allocs, 1 frees, 40 bytes allocated
+==94==
+==94== All heap blocks were freed -- no leaks are possible
+
+3) Correção Linha 8: for (i = 0; i < 10; i++)
+
+4)
+
+==146== Command: ./c1correto.a
+==146==
+==146== 
+==146== HEAP SUMMARY:
+==146==     in use at exit: 0 bytes in 0 blocks
+==146==   total heap usage: 1 allocs, 1 frees, 40 bytes allocated
+==146==
+==146== All heap blocks were freed -- no leaks are possible
+==146==
+==146== For lists of detected and suppressed errors, rerun with: -s
+==146== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

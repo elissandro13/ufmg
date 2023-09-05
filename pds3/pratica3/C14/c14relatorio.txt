@@ -1,0 +1,88 @@
+1) O valor de fact não foi inicializado de maneira correta e portanto contia lixo da memória.
+2)
+==1015== Memcheck, a memory error detector
+==1015== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1015== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1015== Command: ./c14correto.a
+==1015==
+Positive integer:1
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CDAD8: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x1091E2: main (c14correto.c:8)
+==1015==
+==1015== Use of uninitialised value of size 8
+==1015==    at 0x48B181B: _itoa_word (_itoa.c:179)
+==1015==    by 0x48CD6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x1091E2: main (c14correto.c:8)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48B182D: _itoa_word (_itoa.c:179)
+==1015==    by 0x48CD6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x1091E2: main (c14correto.c:8)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CE3A8: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x1091E2: main (c14correto.c:8)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CD86E: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x1091E2: main (c14correto.c:8)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CDAD8: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x10921A: main (c14correto.c:12)
+==1015==
+==1015== Use of uninitialised value of size 8
+==1015==    at 0x48B181B: _itoa_word (_itoa.c:179)
+==1015==    by 0x48CD6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x10921A: main (c14correto.c:12)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48B182D: _itoa_word (_itoa.c:179)
+==1015==    by 0x48CD6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x10921A: main (c14correto.c:12)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CE3A8: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x10921A: main (c14correto.c:12)
+==1015==
+==1015== Conditional jump or move depends on uninitialised value(s)
+==1015==    at 0x48CD86E: __vfprintf_internal (vfprintf-internal.c:1687)
+==1015==    by 0x48B7EBE: printf (printf.c:33)
+==1015==    by 0x10921A: main (c14correto.c:12)
+==1015==
+Debug fact = 31Factorial 1 = 31
+==1015== 
+==1015== HEAP SUMMARY:
+==1015==     in use at exit: 0 bytes in 0 blocks
+==1015==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==1015==
+==1015== All heap blocks were freed -- no leaks are possible
+==1015==
+==1015== Use --track-origins=yes to see where uninitialised values come from
+==1015== For lists of detected and suppressed errors, rerun with: -s
+==1015== ERROR SUMMARY: 14 errors from 10 contexts (suppressed: 0 from 0)
+3) Correção Linha 5: fact = 0;
+4)
+==1033== Command: ./c14correto.a
+==1033==
+Positive integer:2
+Debug fact = 0Factorial 2 = 0
+==1033== 
+==1033== HEAP SUMMARY:
+==1033==     in use at exit: 0 bytes in 0 blocks
+==1033==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==1033==
+==1033== All heap blocks were freed -- no leaks are possible
+==1033==
+==1033== For lists of detected and suppressed errors, rerun with: -s
+==1033== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

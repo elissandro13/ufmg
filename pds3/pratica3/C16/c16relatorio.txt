@@ -1,0 +1,34 @@
+1) Erro: Inteiro sendo divido por zero
+2)
+
+=1789== Process terminating with default action of signal 8 (SIGFPE)
+==1789==  Integer divide by zero at address 0x1002D47E1F
+==1789==    at 0x10913B: actual_calc (c16correto.c:6)
+==1789==    by 0x109170: calc (c16correto.c:15)
+==1789==    by 0x109189: main (c16correto.c:20)
+==1789== 
+==1789== HEAP SUMMARY:
+==1789==     in use at exit: 0 bytes in 0 blocks
+==1789==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1789==
+==1789== All heap blocks were freed -- no leaks are possible
+==1789==
+==1789== For lists of detected and suppressed errors, rerun with: -s
+==1789== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+3) Correção: Linha 14: b=1;
+4)
+
+==1831== Memcheck, a memory error detector
+==1831== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1831== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1831== Command: ./c16correto.a
+==1831==
+==1831== 
+==1831== HEAP SUMMARY:
+==1831==     in use at exit: 0 bytes in 0 blocks
+==1831==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==1831==
+==1831== All heap blocks were freed -- no leaks are possible
+==1831==
+==1831== For lists of detected and suppressed errors, rerun with: -s
+==1831== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

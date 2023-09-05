@@ -1,0 +1,73 @@
+1) A memória não foi liberada. Além disso, o tamanho alocado foi incorreto. É preciso de 10 posições. 9 do nome da pessoa, mais uma para o '\0'
+2)
+==773== Command: ./c11correto.a
+==773==
+==773== Invalid write of size 2
+==773==    at 0x1091B4: main (c11correto.c:9)
+==773==  Address 0x4a48048 is 0 bytes after a block of size 8 alloc'd
+==773==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x10919E: main (c11correto.c:8)
+==773==
+==773== Invalid read of size 1
+==773==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x48CEE94: __vfprintf_internal (vfprintf-internal.c:1688)
+==773==    by 0x48B7EBE: printf (printf.c:33)
+==773==    by 0x1091DF: main (c11correto.c:11)
+==773==  Address 0x4a48048 is 0 bytes after a block of size 8 alloc'd
+==773==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x10919E: main (c11correto.c:8)
+==773==
+==773== Invalid read of size 1
+==773==    at 0x48E588C: _IO_new_file_xsputn (fileops.c:1219)
+==773==    by 0x48E588C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==773==    by 0x48CD27B: __vfprintf_internal (vfprintf-internal.c:1688)
+==773==    by 0x48B7EBE: printf (printf.c:33)
+==773==    by 0x1091DF: main (c11correto.c:11)
+==773==  Address 0x4a48048 is 0 bytes after a block of size 8 alloc'd
+==773==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x10919E: main (c11correto.c:8)
+==773==
+==773== Invalid read of size 1
+==773==    at 0x48436A0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x48E57B1: _IO_new_file_xsputn (fileops.c:1236)
+==773==    by 0x48E57B1: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==773==    by 0x48CD27B: __vfprintf_internal (vfprintf-internal.c:1688)
+==773==    by 0x48B7EBE: printf (printf.c:33)
+==773==    by 0x1091DF: main (c11correto.c:11)
+==773==  Address 0x4a48048 is 0 bytes after a block of size 8 alloc'd
+==773==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x10919E: main (c11correto.c:8)
+==773==
+773, Rolberton
+==773== 
+==773== HEAP SUMMARY:
+==773==     in use at exit: 8 bytes in 1 blocks
+==773==   total heap usage: 2 allocs, 1 frees, 1,032 bytes allocated
+==773==
+==773== 8 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==773==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==773==    by 0x10919E: main (c11correto.c:8)
+==773==
+==773== LEAK SUMMARY:
+==773==    definitely lost: 8 bytes in 1 blocks
+==773==    indirectly lost: 0 bytes in 0 blocks
+==773==      possibly lost: 0 bytes in 0 blocks
+==773==    still reachable: 0 bytes in 0 blocks
+==773==         suppressed: 0 bytes in 0 blocks
+==773==
+==773== For lists of detected and suppressed errors, rerun with: -s
+==773== ERROR SUMMARY: 7 errors from 5 contexts (suppressed: 0 from 0)
+3) Corrreção: Linha 8:  char *msg = malloc(10); Linha 12: free(msg);
+4)
+==833== Command: ./c11correto.a
+==833==
+833, Rolberton
+==833== 
+==833== HEAP SUMMARY:
+==833==     in use at exit: 0 bytes in 0 blocks
+==833==   total heap usage: 2 allocs, 2 frees, 1,034 bytes allocated
+==833==
+==833== All heap blocks were freed -- no leaks are possible
+==833==
+==833== For lists of detected and suppressed errors, rerun with: -s
+==833== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

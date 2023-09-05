@@ -1,0 +1,33 @@
+1) O array foi alocado de tamanho insuficiente. É preciso alocar 27 posições
+2)
+==580==
+==580== Invalid read of size 1
+==580==    at 0x1091D2: main (c8correto.c:9)
+==580==  Address 0x4a480ba is 0 bytes after a block of size 26 alloc'd
+==580==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==580==    by 0x1091B1: main (c8correto.c:6)
+==580==
+==580== 
+==580== HEAP SUMMARY:
+==580==     in use at exit: 0 bytes in 0 blocks
+==580==   total heap usage: 2 allocs, 2 frees, 53 bytes allocated
+==580==
+==580== All heap blocks were freed -- no leaks are possible
+==580==
+==580== For lists of detected and suppressed errors, rerun with: -s
+==580== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+3) Correção linha 6: char* source = malloc(27 * sizeof(char));
+
+4)
+
+==586== Command: ./c8correto.a
+==586==
+==586== 
+==586== HEAP SUMMARY:
+==586==     in use at exit: 0 bytes in 0 blocks
+==586==   total heap usage: 2 allocs, 2 frees, 54 bytes allocated
+==586==
+==586== All heap blocks were freed -- no leaks are possible
+==586==
+==586== For lists of detected and suppressed errors, rerun with: -s
+==586== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

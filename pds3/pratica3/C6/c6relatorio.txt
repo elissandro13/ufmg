@@ -1,0 +1,49 @@
+1) Erro realocação incorreta
+2)
+==510== Command: ./c6correto.a
+==510==
+==510== Invalid free() / delete / delete[] / realloc()
+==510==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==510==    by 0x109215: main (c6correto.c:21)
+==510==  Address 0x4a48090 is 0 bytes inside a block of size 40 free'd
+==510==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==510==    by 0x1091B4: resizeArray (c6correto.c:12)
+==510==    by 0x109202: main (c6correto.c:19)
+==510==  Block was alloc'd at
+==510==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==510==    by 0x1091EC: main (c6correto.c:18)
+==510==
+==510== 
+==510== HEAP SUMMARY:
+==510==     in use at exit: 60 bytes in 1 blocks
+==510==   total heap usage: 3 allocs, 3 frees, 116 bytes allocated
+==510==
+==510== 60 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==510==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==510==    by 0x1091B4: resizeArray (c6correto.c:12)
+==510==    by 0x109202: main (c6correto.c:19)
+==510==
+==510== LEAK SUMMARY:
+==510==    definitely lost: 60 bytes in 1 blocks
+==510==    indirectly lost: 0 bytes in 0 blocks
+==510==      possibly lost: 0 bytes in 0 blocks
+==510==    still reachable: 0 bytes in 0 blocks
+==510==         suppressed: 0 bytes in 0 blocks
+==510==
+==510== For lists of detected and suppressed errors, rerun with: -s
+==510== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+3) Linhas 12: array->data = realloc(array->data, 15 * sizeof(int32_t)); //doesn't update array->data
+4) ==555== Memcheck, a memory error detector
+==555== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==555== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==555== Command: ./c6correto.a
+==555==
+==555== 
+==555== HEAP SUMMARY:
+==555==     in use at exit: 0 bytes in 0 blocks
+==555==   total heap usage: 3 allocs, 3 frees, 116 bytes allocated
+==555==
+==555== All heap blocks were freed -- no leaks are possible
+==555==
+==555== For lists of detected and suppressed errors, rerun with: -s
+==555== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

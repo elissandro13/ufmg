@@ -1,0 +1,52 @@
+1) O programa roda indefinitivamente e não desaloca a memória que usa.
+2)
+==629== Process terminating with default action of signal 2 (SIGINT)
+==629==    at 0x49641E7: write (write.c:26)
+==629==    by 0x48E500C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1181)
+==629==    by 0x48E6AD0: new_do_write (fileops.c:449)
+==629==    by 0x48E6AD0: _IO_new_do_write (fileops.c:426)
+==629==    by 0x48E6AD0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:423)
+==629==    by 0x48E5834: _IO_new_file_xsputn (fileops.c:1244)
+==629==    by 0x48E5834: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==629==    by 0x48CD165: __vfprintf_internal (vfprintf-internal.c:1719)
+==629==    by 0x48B7EBE: printf (printf.c:33)
+==629==    by 0x10919A: main (c10correto.c:10)
+101369984
+==629==
+==629== HEAP SUMMARY:
+==629==     in use at exit: 15,652,736 bytes in 122,287 blocks
+==629==   total heap usage: 122,288 allocs, 1 frees, 15,653,760 bytes allocated
+==629==
+==629== 15,652,608 bytes in 122,286 blocks are definitely lost in loss record 2 of 2
+==629==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==629==    by 0x10917E: main (c10correto.c:9)
+==629==
+==629== LEAK SUMMARY:
+==629==    definitely lost: 15,652,608 bytes in 122,286 blocks
+==629==    indirectly lost: 0 bytes in 0 blocks
+==629==      possibly lost: 0 bytes in 0 blocks
+==629==    still reachable: 128 bytes in 1 blocks
+==629==         suppressed: 0 bytes in 0 blocks
+==629== Reachable blocks (those to which a pointer was found) are not shown.
+==629== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==629==
+==629== For lists of detected and suppressed errors, rerun with: -s
+==629== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+3) Correção:  free(p) e determinar um tamanho máximo do loop;
+4)
+
+==721== HEAP SUMMARY:
+==721==     in use at exit: 128 bytes in 1 blocks
+==721==   total heap usage: 68,119 allocs, 68,118 frees, 8,720,128 bytes allocated
+==721==
+==721== LEAK SUMMARY:
+==721==    definitely lost: 0 bytes in 0 blocks
+==721==    indirectly lost: 0 bytes in 0 blocks
+==721==      possibly lost: 0 bytes in 0 blocks
+==721==    still reachable: 128 bytes in 1 blocks
+==721==         suppressed: 0 bytes in 0 blocks
+==721== Reachable blocks (those to which a pointer was found) are not shown.
+==721== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==721==
+==721== For lists of detected and suppressed errors, rerun with: -s
+==721== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,40 @@
+1) Linha 9: a = malloc(sizeof(int) * 100); Estou subscrevendo os mallocs, contudo o free relacionado a eles está fora do loop. Com isso, estou premitindo a memória vazar.
+2) ==187== Command: ./c3correto.a
+==187==
+==187== 
+==187== HEAP SUMMARY:
+==187==     in use at exit: 3,600 bytes in 9 blocks
+==187==   total heap usage: 10 allocs, 1 frees, 4,000 bytes allocated
+==187==
+==187== 3,600 bytes in 9 blocks are definitely lost in loss record 1 of 1
+==187==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==187==    by 0x10918E: main (c3correto.c:9)
+==187==
+==187== LEAK SUMMARY:
+==187==    definitely lost: 3,600 bytes in 9 blocks
+==187==    indirectly lost: 0 bytes in 0 blocks
+==187==      possibly lost: 0 bytes in 0 blocks
+==187==    still reachable: 0 bytes in 0 blocks
+==187==         suppressed: 0 bytes in 0 blocks
+==187==
+==187== For lists of detected and suppressed errors, rerun with: -s
+==187== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+3) Correção: Adicionar o free(a) dentro do Loop. 
+for (i=0; i < 10; i++){
+    a = malloc(sizeof(int) * 100);
+    free(a);
+}
+
+4)
+
+==193== Command: ./c3correto.a
+==193==
+==193==
+==193== HEAP SUMMARY:
+==193==     in use at exit: 0 bytes in 0 blocks
+==193==   total heap usage: 10 allocs, 10 frees, 4,000 bytes allocated
+==193==
+==193== All heap blocks were freed -- no leaks are possible
+==193==
+==193== For lists of detected and suppressed errors, rerun with: -s
+==193== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
